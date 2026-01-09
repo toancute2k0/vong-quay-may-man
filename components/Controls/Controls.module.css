@@ -1,0 +1,136 @@
+.panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: var(--text-dark);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  color: #888;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.activeTab {
+  color: var(--primary-red);
+  border-bottom-color: var(--primary-red);
+}
+
+.content {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: var(--primary-red);
+}
+
+.addButton {
+  background: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.addButton:hover {
+  background: var(--dark-red);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+  border-left: 4px solid var(--primary-red);
+  animation: fadeIn 0.3s ease;
+}
+
+.itemLabel {
+  font-weight: 500;
+}
+
+.deleteBtn {
+  background: transparent;
+  border: none;
+  color: #ff4d4f;
+  font-size: 18px;
+  padding: 4px;
+}
+
+.deleteBtn:hover {
+  background: #fff0f0;
+  border-radius: 4px;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.historyTime {
+  font-size: 12px;
+  color: #888;
+}
+
+.historyResult {
+  font-weight: 600;
+  color: var(--primary-red);
+}
+
+.emptyState {
+  text-align: center;
+  color: #aaa;
+  margin-top: 50px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

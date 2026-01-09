@@ -1,0 +1,68 @@
+.wheelContainer {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 
+    0 0 0 8px #d70018, /* Inner Red Ring */
+    0 0 0 20px #FFD700, /* Outer Gold Ring */
+    0 0 30px rgba(0,0,0,0.5); /* Shadow */
+  transition: transform 5s cubic-bezier(0.1, 0.7, 0.1, 1);
+  overflow: hidden;
+  background: var(--dark-red);
+  z-index: 20;
+}
+
+.wheelCanvas {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 8s cubic-bezier(0.1, 0.05, 0.1, 1); /* Longer duration for more spins */
+}
+
+.segmentLabel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 0;
+  white-space: nowrap;
+  font-weight: 900; /* Extra bold */
+  font-size: 14px;
+  text-transform: uppercase;
+  /* Add strong drop shadow/outline for contrast */
+  text-shadow: 
+    1px 1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    0px 2px 4px rgba(0,0,0,0.5);
+  width: 50%;
+  padding-left: 0px; 
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+.pointer {
+  display: none; 
+}
+
+.centerKnob {
+  display: none; 
+}
+
+@media (min-width: 768px) {
+  .wheelContainer {
+    width: 450px;
+    height: 450px;
+  }
+  .segmentLabel {
+    font-size: 20px;
+    padding-right: 40px;
+  }
+}

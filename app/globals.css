@@ -1,42 +1,103 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 355 100% 95%; /* Light Red Tint */
+    --foreground: 355 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 355 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 355 50% 10%;
+
+    --primary: 354 100% 42%; /* #D70018 Tet Red */
+    --primary-foreground: 48 100% 50%; /* #FFD700 Gold */
+
+    --secondary: 48 100% 50%; /* Gold */
+    --secondary-foreground: 354 100% 25%;
+
+    --muted: 355 20% 96%;
+    --muted-foreground: 355 10% 40%;
+
+    --accent: 48 100% 90%;
+    --accent-foreground: 354 100% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 355 20% 90%;
+    --input: 355 20% 90%;
+    --ring: 354 100% 42%;
+
+    --radius: 0.5rem;
   }
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #8B0000;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 {
+    @apply font-bold;
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #FFD700;
+    border-radius: 4px;
+    background-image: linear-gradient(to bottom, #FFD700, #B8860B);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #FFAA00;
+  }
+}
+
+/* Sunburst Animation */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.bg-sunburst {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 200vmax;
+  height: 200vmax;
+  background: repeating-conic-gradient(
+    from 0deg,
+    #D70018 0deg 15deg,
+    #B20013 15deg 30deg
+  );
+  transform: translate(-50%, -50%);
+  animation: spin-slow 60s linear infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+.bg-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, #4a0006 100%);
+  z-index: -1;
+  pointer-events: none;
 }
